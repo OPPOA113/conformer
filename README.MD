@@ -61,7 +61,7 @@ requirements:
             /data/models/
 
     ```
-    > 生成onnx模型和trt engine文件和riva部署的配置文件
+    > 生成onnx[模型](http://10.23.4.220:8080/trt/customer/comformer/RIVA%20Conformer%20ASR%20Mandarin/onnx/)和trt engine文件和riva部署模型[文件](http://10.23.4.220:8080/trt/customer/comformer/RIVA%20Conformer%20ASR%20Mandarin/trt_engine/)
 
 6. 启动服务 
 
