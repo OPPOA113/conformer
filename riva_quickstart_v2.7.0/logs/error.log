@@ -1,0 +1,22 @@
+
+==========================
+=== Riva Speech Skills ===
+==========================
+
+NVIDIA Release  (build 46434648)
+
+Copyright (c) 2018-2022, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Triton server died before reaching ready state. Terminating Riva startup.
+Check Triton logs with: docker logs 

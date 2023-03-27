@@ -1,0 +1,1790 @@
+
+vastai@shfw0011072:~/nvbenchmark/custom_model/espnet_onnx/vacc_model$ docker logs riva-speech
+
+==========================
+=== Riva Speech Skills ===
+==========================
+
+NVIDIA Release  (build 46434648)
+
+Copyright (c) 2018-2022, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:39.219339 107 libtorch.cc:1381] TRITONBACKEND_Initialize: pytorch
+I0327 06:43:39.219412 107 libtorch.cc:1391] Triton TRITONBACKEND API version: 1.9
+I0327 06:43:39.219416 107 libtorch.cc:1397] 'pytorch' TRITONBACKEND API version: 1.9
+I0327 06:43:39.242651 107 onnxruntime.cc:2400] TRITONBACKEND_Initialize: onnxruntime
+I0327 06:43:39.242694 107 onnxruntime.cc:2410] Triton TRITONBACKEND API version: 1.9
+I0327 06:43:39.242706 107 onnxruntime.cc:2416] 'onnxruntime' TRITONBACKEND API version: 1.9
+I0327 06:43:39.242718 107 onnxruntime.cc:2446] backend configuration:
+{}
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:40.937282 107 pinned_memory_manager.cc:240] Pinned memory pool is created at '0x7f15dc000000' with size 268435456
+I0327 06:43:40.940153 107 cuda_memory_manager.cc:105] CUDA memory pool is created on device 0 with size 1000000000
+I0327 06:43:40.966178 107 model_repository_manager.cc:1077] loading: conformer-zh-CN-asr-streaming-ctc-decoder-cpu-streaming:1
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:41.066406 107 model_repository_manager.cc:1077] loading: conformer-zh-CN-asr-streaming-endpointing-streaming:1
+I0327 06:43:41.081964 107 ctc-decoder-library.cc:20] TRITONBACKEND_ModelInitialize: conformer-zh-CN-asr-streaming-ctc-decoder-cpu-streaming (version 1)
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+W0327 06:43:41.083201   147 parameter_parser.cc:144] Parameter 'decoder_num_worker_threads' set but unused.
+W0327 06:43:41.083216   147 parameter_parser.cc:144] Parameter 'max_execution_batch_size' set but unused.
+W0327 06:43:41.083218   147 parameter_parser.cc:144] Parameter 'max_supported_transcripts' set but unused.
+W0327 06:43:41.083220   147 parameter_parser.cc:144] Parameter 'profane_words_file' set but unused.
+W0327 06:43:41.083222   147 parameter_parser.cc:144] Parameter 'vocab_file' set but unused.
+I0327 06:43:41.085056 107 backend_model.cc:303] model configuration:
+{
+    "name": "conformer-zh-CN-asr-streaming-ctc-decoder-cpu-streaming",
+    "platform": "",
+    "backend": "riva_asr_decoder",
+    "version_policy": {
+        "latest": {
+            "num_versions": 1
+        }
+    },
+    "max_batch_size": 1024,
+    "input": [
+        {
+            "name": "CLASS_LOGITS",
+            "data_type": "TYPE_FP32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                -1,
+                5207
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        },
+        {
+            "name": "END_FLAG",
+            "data_type": "TYPE_UINT32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                1
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        },
+        {
+            "name": "SEGMENTS_START_END",
+            "data_type": "TYPE_FP32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                -1,
+                2
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        },
+        {
+            "name": "CUSTOM_CONFIGURATION",
+            "data_type": "TYPE_STRING",
+            "format": "FORMAT_NONE",
+            "dims": [
+                -1,
+                2
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        }
+    ],
+    "output": [
+        {
+            "name": "FINAL_TRANSCRIPTS",
+            "data_type": "TYPE_STRING",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "FINAL_TRANSCRIPTS_SCORE",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "FINAL_WORDS_START_END",
+            "data_type": "TYPE_INT32",
+            "dims": [
+                -1,
+                2
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "PARTIAL_TRANSCRIPTS",
+            "data_type": "TYPE_STRING",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "PARTIAL_TRANSCRIPTS_STABILITY",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "PARTIAL_WORDS_START_END",
+            "data_type": "TYPE_INT32",
+            "dims": [
+                -1,
+                2
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "FINAL_WORDS_SCORE",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "PARTIAL_WORDS_SCORE",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        }
+    ],
+    "batch_input": [],
+    "batch_output": [],
+    "optimization": {
+        "graph": {
+            "level": 0
+        },
+        "priority": "PRIORITY_DEFAULT",
+        "cuda": {
+            "graphs": false,
+            "busy_wait_events": false,
+            "graph_spec": [],
+            "output_copy_stream": true
+        },
+        "input_pinned_memory": {
+            "enable": true
+        },
+        "output_pinned_memory": {
+            "enable": true
+        },
+        "gather_kernel_buffer_threshold": 0,
+        "eager_batching": false
+    },
+    "sequence_batching": {
+        "oldest": {
+            "max_candidate_sequences": 1024,
+            "preferred_batch_size": [
+                32,
+                64
+            ],
+            "max_queue_delay_microseconds": 1000
+        },
+        "max_sequence_idle_microseconds": 60000000,
+        "control_input": [
+            {
+                "name": "START",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_START",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "READY",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_READY",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "END",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_END",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "CORRID",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_CORRID",
+                        "int32_false_true": [],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_UINT64"
+                    }
+                ]
+            }
+        ],
+        "state": []
+    },
+    "instance_group": [
+        {
+            "name": "conformer-zh-CN-asr-streaming-ctc-decoder-cpu-streaming_0",
+            "kind": "KIND_GPU",
+            "count": 1,
+            "gpus": [
+                0
+            ],
+            "secondary_devices": [],
+            "profile": [],
+            "passive": false,
+            "host_policy": ""
+        }
+    ],
+    "default_model_filename": "",
+    "cc_model_filenames": {},
+    "metric_tags": {},
+    "parameters": {
+        "right_padding_size": {
+            "string_value": "1.92"
+        },
+        "decoder_type": {
+            "string_value": "greedy"
+        },
+        "max_supported_transcripts": {
+            "string_value": "1"
+        },
+        "chunk_size": {
+            "string_value": "0.16"
+        },
+        "max_execution_batch_size": {
+            "string_value": "1024"
+        },
+        "profane_words_file": {
+            "string_value": ""
+        },
+        "vocab_file": {
+            "string_value": "/data/models/conformer-zh-CN-asr-streaming-ctc-decoder-cpu-streaming/1/riva_decoder_vocabulary.txt"
+        },
+        "ms_per_timestep": {
+            "string_value": "40"
+        },
+        "asr_model_delay": {
+            "string_value": "-1"
+        },
+        "decoder_num_worker_threads": {
+            "string_value": "-1"
+        },
+        "use_subword": {
+            "string_value": "False"
+        },
+        "streaming": {
+            "string_value": "True"
+        },
+        "left_padding_size": {
+            "string_value": "1.92"
+        }
+    },
+    "model_warmup": [],
+    "model_transaction_policy": {
+        "decoupled": false
+    }
+}
+I0327 06:43:41.086516 107 ctc-decoder-library.cc:23] TRITONBACKEND_ModelInstanceInitialize: conformer-zh-CN-asr-streaming-ctc-decoder-cpu-streaming_0 (device 0)
+I0327 06:43:41.093783   147 ctc-decoder.cc:174] Beam Decoder initialized successfully!
+I0327 06:43:41.094414 107 model_repository_manager.cc:1231] successfully loaded 'conformer-zh-CN-asr-streaming-ctc-decoder-cpu-streaming' version 1
+I0327 06:43:41.166579 107 model_repository_manager.cc:1077] loading: conformer-zh-CN-asr-offline-ctc-decoder-cpu-streaming-offline:1
+I0327 06:43:41.168116 107 endpointing_library.cc:18] TRITONBACKEND_ModelInitialize: conformer-zh-CN-asr-streaming-endpointing-streaming (version 1)
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+W0327 06:43:41.169721   151 parameter_parser.cc:144] Parameter 'chunk_size' set but unused.
+W0327 06:43:41.169744   151 parameter_parser.cc:144] Parameter 'ms_per_timestep' set but unused.
+W0327 06:43:41.169752   151 parameter_parser.cc:144] Parameter 'residue_blanks_at_end' set but unused.
+W0327 06:43:41.169759   151 parameter_parser.cc:144] Parameter 'residue_blanks_at_start' set but unused.
+W0327 06:43:41.169765   151 parameter_parser.cc:144] Parameter 'start_history' set but unused.
+W0327 06:43:41.169772   151 parameter_parser.cc:144] Parameter 'start_th' set but unused.
+W0327 06:43:41.169780   151 parameter_parser.cc:144] Parameter 'stop_history' set but unused.
+W0327 06:43:41.169787   151 parameter_parser.cc:144] Parameter 'stop_th' set but unused.
+W0327 06:43:41.169795   151 parameter_parser.cc:144] Parameter 'streaming' set but unused.
+W0327 06:43:41.169803   151 parameter_parser.cc:144] Parameter 'use_subword' set but unused.
+W0327 06:43:41.169809   151 parameter_parser.cc:144] Parameter 'vocab_file' set but unused.
+I0327 06:43:41.176252 107 backend_model.cc:303] model configuration:
+{
+    "name": "conformer-zh-CN-asr-streaming-endpointing-streaming",
+    "platform": "",
+    "backend": "riva_asr_endpointing",
+    "version_policy": {
+        "latest": {
+            "num_versions": 1
+        }
+    },
+    "max_batch_size": 2048,
+    "input": [
+        {
+            "name": "CLASS_LOGITS",
+            "data_type": "TYPE_FP32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                -1,
+                5207
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        }
+    ],
+    "output": [
+        {
+            "name": "SEGMENTS_START_END",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                -1,
+                2
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        }
+    ],
+    "batch_input": [],
+    "batch_output": [],
+    "optimization": {
+        "graph": {
+            "level": 0
+        },
+        "priority": "PRIORITY_DEFAULT",
+        "cuda": {
+            "graphs": false,
+            "busy_wait_events": false,
+            "graph_spec": [],
+            "output_copy_stream": true
+        },
+        "input_pinned_memory": {
+            "enable": true
+        },
+        "output_pinned_memory": {
+            "enable": true
+        },
+        "gather_kernel_buffer_threshold": 0,
+        "eager_batching": false
+    },
+    "sequence_batching": {
+        "max_sequence_idle_microseconds": 60000000,
+        "control_input": [
+            {
+                "name": "START",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_START",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "READY",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_READY",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            }
+        ],
+        "state": []
+    },
+    "instance_group": [
+        {
+            "name": "conformer-zh-CN-asr-streaming-endpointing-streaming_0",
+            "kind": "KIND_CPU",
+            "count": 1,
+            "gpus": [],
+            "secondary_devices": [],
+            "profile": [],
+            "passive": false,
+            "host_policy": ""
+        }
+    ],
+    "default_model_filename": "",
+    "cc_model_filenames": {},
+    "metric_tags": {},
+    "parameters": {
+        "vocab_file": {
+            "string_value": "/data/models/conformer-zh-CN-asr-streaming-endpointing-streaming/1/riva_decoder_vocabulary.txt"
+        },
+        "start_history": {
+            "string_value": "200"
+        },
+        "ms_per_timestep": {
+            "string_value": "40"
+        },
+        "residue_blanks_at_start": {
+            "string_value": "-2"
+        },
+        "use_subword": {
+            "string_value": "False"
+        },
+        "streaming": {
+            "string_value": "True"
+        },
+        "stop_history": {
+            "string_value": "800"
+        },
+        "residue_blanks_at_end": {
+            "string_value": "0"
+        },
+        "start_th": {
+            "string_value": "0.2"
+        },
+        "chunk_size": {
+            "string_value": "0.16"
+        },
+        "endpointing_type": {
+            "string_value": "greedy_ctc"
+        },
+        "stop_th": {
+            "string_value": "0.98"
+        }
+    },
+    "model_warmup": [],
+    "model_transaction_policy": {
+        "decoupled": false
+    }
+}
+I0327 06:43:41.178069 107 endpointing_library.cc:22] TRITONBACKEND_ModelInstanceInitialize: conformer-zh-CN-asr-streaming-endpointing-streaming_0 (device 0)
+I0327 06:43:41.266866 107 model_repository_manager.cc:1077] loading: conformer-zh-CN-asr-offline-endpointing-streaming-offline:1
+I0327 06:43:41.367141 107 model_repository_manager.cc:1077] loading: conformer-zh-CN-asr-offline-feature-extractor-streaming-offline:1
+I0327 06:43:41.467358 107 model_repository_manager.cc:1077] loading: conformer-zh-CN-asr-streaming-feature-extractor-streaming:1
+I0327 06:43:41.567564 107 model_repository_manager.cc:1077] loading: riva-trt-conformer-zh-CN-asr-offline-am-streaming-offline:1
+I0327 06:43:41.659371 107 ctc-decoder-library.cc:20] TRITONBACKEND_ModelInitialize: conformer-zh-CN-asr-offline-ctc-decoder-cpu-streaming-offline (version 1)
+I0327 06:43:41.660837 107 model_repository_manager.cc:1231] successfully loaded 'conformer-zh-CN-asr-streaming-endpointing-streaming' version 1
+W0327 06:43:41.661092   152 parameter_parser.cc:144] Parameter 'decoder_num_worker_threads' set but unused.
+W0327 06:43:41.661108   152 parameter_parser.cc:144] Parameter 'max_execution_batch_size' set but unused.
+W0327 06:43:41.661114   152 parameter_parser.cc:144] Parameter 'max_supported_transcripts' set but unused.
+W0327 06:43:41.661119   152 parameter_parser.cc:144] Parameter 'profane_words_file' set but unused.
+W0327 06:43:41.661124   152 parameter_parser.cc:144] Parameter 'vocab_file' set but unused.
+I0327 06:43:41.665193 107 backend_model.cc:303] model configuration:
+{
+    "name": "conformer-zh-CN-asr-offline-ctc-decoder-cpu-streaming-offline",
+    "platform": "",
+    "backend": "riva_asr_decoder",
+    "version_policy": {
+        "latest": {
+            "num_versions": 1
+        }
+    },
+    "max_batch_size": 1024,
+    "input": [
+        {
+            "name": "CLASS_LOGITS",
+            "data_type": "TYPE_FP32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                -1,
+                5207
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        },
+        {
+            "name": "END_FLAG",
+            "data_type": "TYPE_UINT32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                1
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        },
+        {
+            "name": "SEGMENTS_START_END",
+            "data_type": "TYPE_FP32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                -1,
+                2
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        },
+        {
+            "name": "CUSTOM_CONFIGURATION",
+            "data_type": "TYPE_STRING",
+            "format": "FORMAT_NONE",
+            "dims": [
+                -1,
+                2
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        }
+    ],
+    "output": [
+        {
+            "name": "FINAL_TRANSCRIPTS",
+            "data_type": "TYPE_STRING",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "FINAL_TRANSCRIPTS_SCORE",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "FINAL_WORDS_START_END",
+            "data_type": "TYPE_INT32",
+            "dims": [
+                -1,
+                2
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "PARTIAL_TRANSCRIPTS",
+            "data_type": "TYPE_STRING",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "PARTIAL_TRANSCRIPTS_STABILITY",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "PARTIAL_WORDS_START_END",
+            "data_type": "TYPE_INT32",
+            "dims": [
+                -1,
+                2
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "FINAL_WORDS_SCORE",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "PARTIAL_WORDS_SCORE",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        }
+    ],
+    "batch_input": [],
+    "batch_output": [],
+    "optimization": {
+        "graph": {
+            "level": 0
+        },
+        "priority": "PRIORITY_DEFAULT",
+        "cuda": {
+            "graphs": false,
+            "busy_wait_events": false,
+            "graph_spec": [],
+            "output_copy_stream": true
+        },
+        "input_pinned_memory": {
+            "enable": true
+        },
+        "output_pinned_memory": {
+            "enable": true
+        },
+        "gather_kernel_buffer_threshold": 0,
+        "eager_batching": false
+    },
+    "sequence_batching": {
+        "oldest": {
+            "max_candidate_sequences": 1024,
+            "preferred_batch_size": [
+                32,
+                64
+            ],
+            "max_queue_delay_microseconds": 1000
+        },
+        "max_sequence_idle_microseconds": 60000000,
+        "control_input": [
+            {
+                "name": "START",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_START",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "READY",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_READY",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "END",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_END",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "CORRID",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_CORRID",
+                        "int32_false_true": [],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_UINT64"
+                    }
+                ]
+            }
+        ],
+        "state": []
+    },
+    "instance_group": [
+        {
+            "name": "conformer-zh-CN-asr-offline-ctc-decoder-cpu-streaming-offline_0",
+            "kind": "KIND_GPU",
+            "count": 1,
+            "gpus": [
+                0
+            ],
+            "secondary_devices": [],
+            "profile": [],
+            "passive": false,
+            "host_policy": ""
+        }
+    ],
+    "default_model_filename": "",
+    "cc_model_filenames": {},
+    "metric_tags": {},
+    "parameters": {
+        "profane_words_file": {
+            "string_value": ""
+        },
+        "vocab_file": {
+            "string_value": "/data/models/conformer-zh-CN-asr-offline-ctc-decoder-cpu-streaming-offline/1/riva_decoder_vocabulary.txt"
+        },
+        "decoder_num_worker_threads": {
+            "string_value": "-1"
+        },
+        "asr_model_delay": {
+            "string_value": "-1"
+        },
+        "ms_per_timestep": {
+            "string_value": "40"
+        },
+        "use_subword": {
+            "string_value": "False"
+        },
+        "streaming": {
+            "string_value": "True"
+        },
+        "left_padding_size": {
+            "string_value": "1.6"
+        },
+        "right_padding_size": {
+            "string_value": "1.6"
+        },
+        "decoder_type": {
+            "string_value": "greedy"
+        },
+        "chunk_size": {
+            "string_value": "4.8"
+        },
+        "max_supported_transcripts": {
+            "string_value": "1"
+        },
+        "max_execution_batch_size": {
+            "string_value": "1024"
+        }
+    },
+    "model_warmup": [],
+    "model_transaction_policy": {
+        "decoupled": false
+    }
+}
+I0327 06:43:41.665308 107 endpointing_library.cc:18] TRITONBACKEND_ModelInitialize: conformer-zh-CN-asr-offline-endpointing-streaming-offline (version 1)
+W0327 06:43:41.666954   153 parameter_parser.cc:144] Parameter 'chunk_size' set but unused.
+W0327 06:43:41.666977   153 parameter_parser.cc:144] Parameter 'ms_per_timestep' set but unused.
+W0327 06:43:41.666985   153 parameter_parser.cc:144] Parameter 'residue_blanks_at_end' set but unused.
+W0327 06:43:41.666991   153 parameter_parser.cc:144] Parameter 'residue_blanks_at_start' set but unused.
+W0327 06:43:41.666997   153 parameter_parser.cc:144] Parameter 'start_history' set but unused.
+W0327 06:43:41.667004   153 parameter_parser.cc:144] Parameter 'start_th' set but unused.
+W0327 06:43:41.667011   153 parameter_parser.cc:144] Parameter 'stop_history' set but unused.
+W0327 06:43:41.667016   153 parameter_parser.cc:144] Parameter 'stop_th' set but unused.
+W0327 06:43:41.667023   153 parameter_parser.cc:144] Parameter 'streaming' set but unused.
+W0327 06:43:41.667030   153 parameter_parser.cc:144] Parameter 'use_subword' set but unused.
+W0327 06:43:41.667037   153 parameter_parser.cc:144] Parameter 'vocab_file' set but unused.
+I0327 06:43:41.667724 107 model_repository_manager.cc:1077] loading: riva-trt-conformer-zh-CN-asr-streaming-am-streaming:1
+I0327 06:43:41.673498 107 backend_model.cc:303] model configuration:
+{
+    "name": "conformer-zh-CN-asr-offline-endpointing-streaming-offline",
+    "platform": "",
+    "backend": "riva_asr_endpointing",
+    "version_policy": {
+        "latest": {
+            "num_versions": 1
+        }
+    },
+    "max_batch_size": 2048,
+    "input": [
+        {
+            "name": "CLASS_LOGITS",
+            "data_type": "TYPE_FP32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                -1,
+                5207
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        }
+    ],
+    "output": [
+        {
+            "name": "SEGMENTS_START_END",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                -1,
+                2
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        }
+    ],
+    "batch_input": [],
+    "batch_output": [],
+    "optimization": {
+        "graph": {
+            "level": 0
+        },
+        "priority": "PRIORITY_DEFAULT",
+        "cuda": {
+            "graphs": false,
+            "busy_wait_events": false,
+            "graph_spec": [],
+            "output_copy_stream": true
+        },
+        "input_pinned_memory": {
+            "enable": true
+        },
+        "output_pinned_memory": {
+            "enable": true
+        },
+        "gather_kernel_buffer_threshold": 0,
+        "eager_batching": false
+    },
+    "sequence_batching": {
+        "max_sequence_idle_microseconds": 60000000,
+        "control_input": [
+            {
+                "name": "START",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_START",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "READY",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_READY",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            }
+        ],
+        "state": []
+    },
+    "instance_group": [
+        {
+            "name": "conformer-zh-CN-asr-offline-endpointing-streaming-offline_0",
+            "kind": "KIND_CPU",
+            "count": 1,
+            "gpus": [],
+            "secondary_devices": [],
+            "profile": [],
+            "passive": false,
+            "host_policy": ""
+        }
+    ],
+    "default_model_filename": "",
+    "cc_model_filenames": {},
+    "metric_tags": {},
+    "parameters": {
+        "endpointing_type": {
+            "string_value": "greedy_ctc"
+        },
+        "stop_th": {
+            "string_value": "0.98"
+        },
+        "vocab_file": {
+            "string_value": "/data/models/conformer-zh-CN-asr-offline-endpointing-streaming-offline/1/riva_decoder_vocabulary.txt"
+        },
+        "start_history": {
+            "string_value": "200"
+        },
+        "residue_blanks_at_start": {
+            "string_value": "-2"
+        },
+        "ms_per_timestep": {
+            "string_value": "40"
+        },
+        "use_subword": {
+            "string_value": "False"
+        },
+        "streaming": {
+            "string_value": "True"
+        },
+        "stop_history": {
+            "string_value": "800"
+        },
+        "residue_blanks_at_end": {
+            "string_value": "0"
+        },
+        "start_th": {
+            "string_value": "0.2"
+        },
+        "chunk_size": {
+            "string_value": "4.8"
+        }
+    },
+    "model_warmup": [],
+    "model_transaction_policy": {
+        "decoupled": false
+    }
+}
+I0327 06:43:41.675203 107 ctc-decoder-library.cc:23] TRITONBACKEND_ModelInstanceInitialize: conformer-zh-CN-asr-offline-ctc-decoder-cpu-streaming-offline_0 (device 0)
+I0327 06:43:41.680135   152 ctc-decoder.cc:174] Beam Decoder initialized successfully!
+I0327 06:43:41.681013 107 tensorrt.cc:5294] TRITONBACKEND_Initialize: tensorrt
+I0327 06:43:41.681048 107 tensorrt.cc:5304] Triton TRITONBACKEND API version: 1.9
+I0327 06:43:41.681060 107 tensorrt.cc:5310] 'tensorrt' TRITONBACKEND API version: 1.9
+I0327 06:43:41.681181 107 tensorrt.cc:5353] backend configuration:
+{}
+I0327 06:43:41.681246 107 feature-extractor.cc:400] TRITONBACKEND_ModelInitialize: conformer-zh-CN-asr-streaming-feature-extractor-streaming (version 1)
+I0327 06:43:41.681720 107 model_repository_manager.cc:1231] successfully loaded 'conformer-zh-CN-asr-offline-ctc-decoder-cpu-streaming-offline' version 1
+I0327 06:43:41.682541 107 backend_model.cc:303] model configuration:
+{
+    "name": "conformer-zh-CN-asr-streaming-feature-extractor-streaming",
+    "platform": "",
+    "backend": "riva_asr_features",
+    "version_policy": {
+        "latest": {
+            "num_versions": 1
+        }
+    },
+    "max_batch_size": 1024,
+    "input": [
+        {
+            "name": "AUDIO_SIGNAL",
+            "data_type": "TYPE_FP32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                -1
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        },
+        {
+            "name": "SAMPLE_RATE",
+            "data_type": "TYPE_UINT32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                1
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        }
+    ],
+    "output": [
+        {
+            "name": "AUDIO_FEATURES",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                80,
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "AUDIO_PROCESSED",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "AUDIO_FEATURES_LENGTH",
+            "data_type": "TYPE_INT32",
+            "dims": [
+                1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        }
+    ],
+    "batch_input": [],
+    "batch_output": [],
+    "optimization": {
+        "graph": {
+            "level": 0
+        },
+        "priority": "PRIORITY_DEFAULT",
+        "cuda": {
+            "graphs": false,
+            "busy_wait_events": false,
+            "graph_spec": [],
+            "output_copy_stream": true
+        },
+        "input_pinned_memory": {
+            "enable": true
+        },
+        "output_pinned_memory": {
+            "enable": true
+        },
+        "gather_kernel_buffer_threshold": 0,
+        "eager_batching": false
+    },
+    "sequence_batching": {
+        "oldest": {
+            "max_candidate_sequences": 1024,
+            "preferred_batch_size": [
+                256,
+                512
+            ],
+            "max_queue_delay_microseconds": 1000
+        },
+        "max_sequence_idle_microseconds": 60000000,
+        "control_input": [
+            {
+                "name": "START",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_START",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "READY",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_READY",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "END",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_END",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "CORRID",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_CORRID",
+                        "int32_false_true": [],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_UINT64"
+                    }
+                ]
+            }
+        ],
+        "state": []
+    },
+    "instance_group": [
+        {
+            "name": "conformer-zh-CN-asr-streaming-feature-extractor-streaming_0",
+            "kind": "KIND_GPU",
+            "count": 1,
+            "gpus": [
+                0
+            ],
+            "secondary_devices": [],
+            "profile": [],
+            "passive": false,
+            "host_policy": ""
+        }
+    ],
+    "default_model_filename": "",
+    "cc_model_filenames": {},
+    "metric_tags": {},
+    "parameters": {
+        "window_stride": {
+            "string_value": "0.01"
+        },
+        "num_features": {
+            "string_value": "80"
+        },
+        "window_size": {
+            "string_value": "0.025"
+        },
+        "streaming": {
+            "string_value": "True"
+        },
+        "stddev_floor": {
+            "string_value": "1e-05"
+        },
+        "transpose": {
+            "string_value": "False"
+        },
+        "left_padding_size": {
+            "string_value": "1.92"
+        },
+        "right_padding_size": {
+            "string_value": "1.92"
+        },
+        "gain": {
+            "string_value": "1.0"
+        },
+        "use_utterance_norm_params": {
+            "string_value": "False"
+        },
+        "precalc_norm_time_steps": {
+            "string_value": "0"
+        },
+        "apply_normalization": {
+            "string_value": "True"
+        },
+        "precalc_norm_params": {
+            "string_value": "False"
+        },
+        "dither": {
+            "string_value": "0.0"
+        },
+        "norm_per_feature": {
+            "string_value": "True"
+        },
+        "mean": {
+            "string_value": "-11.4412,  -9.9334,  -9.1292,  -9.0365,  -9.2804,  -9.5643,  -9.7342, -9.6925,  -9.6333,  -9.2808,  -9.1887,  -9.1422,  -9.1397,  -9.2028, -9.2749,  -9.4776,  -9.9185, -10.1557, -10.3800, -10.5067, -10.3190, -10.4728, -10.5529, -10.6402, -10.6440, -10.5113, -10.7395, -10.7870, -10.6074, -10.5033, -10.8278, -10.6384, -10.8481, -10.6875, -10.5454, -10.4747, -10.5165, -10.4930, -10.3413, -10.3472, -10.3735, -10.6830, -10.8813, -10.6338, -10.3856, -10.7727, -10.8957, -10.8068, -10.7373, -10.6108, -10.3405, -10.2889, -10.3922, -10.4946, -10.3367, -10.4164, -10.9949, -10.7196, -10.3971, -10.1734,  -9.9257,  -9.6557,  -9.1761, -9.6653,  -9.7876,  -9.7230,  -9.7792,  -9.7056,  -9.2702,  -9.4650, -9.2755,  -9.1369,  -9.1174,  -8.9197,  -8.5394,  -8.2614,  -8.1353, -8.1422,  -8.3430,  -8.6655"
+        },
+        "stddev": {
+            "string_value": "2.2668, 3.1642, 3.7079, 3.7642, 3.5349, 3.5901, 3.7640, 3.8424, 4.0145, 4.1475, 4.0457, 3.9048, 3.7709, 3.6117, 3.3188, 3.1489, 3.0615, 3.0362, 2.9929, 3.0500, 3.0341, 3.0484, 3.0103, 2.9474, 2.9128, 2.8669, 2.8332, 2.9411, 3.0378, 3.0712, 3.0190, 2.9992, 3.0124, 3.0024, 3.0275, 3.0870, 3.0656, 3.0142, 3.0493, 3.1373, 3.1135, 3.0675, 2.8828, 2.7018, 2.6296, 2.8826, 2.9325, 2.9288, 2.9271, 2.9890, 3.0137, 2.9855, 3.0839, 2.9319, 2.3512, 2.3795, 2.6191, 2.7555, 2.9326, 2.9931, 3.1543, 3.0855, 2.6820, 3.0566, 3.1272, 3.1663, 3.1836, 3.0018, 2.9089, 3.1727, 3.1626, 3.1086, 2.9804, 3.1107, 3.2998, 3.3697, 3.3716, 3.2487, 3.1597, 3.1181"
+        },
+        "chunk_size": {
+            "string_value": "0.16"
+        },
+        "max_execution_batch_size": {
+            "string_value": "1024"
+        },
+        "sample_rate": {
+            "string_value": "16000"
+        }
+    },
+    "model_warmup": [],
+    "model_transaction_policy": {
+        "decoupled": false
+    }
+}
+I0327 06:43:41.682597 107 endpointing_library.cc:22] TRITONBACKEND_ModelInstanceInitialize: conformer-zh-CN-asr-offline-endpointing-streaming-offline_0 (device 0)
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:42.165139 107 feature-extractor.cc:400] TRITONBACKEND_ModelInitialize: conformer-zh-CN-asr-offline-feature-extractor-streaming-offline (version 1)
+I0327 06:43:42.166831 107 model_repository_manager.cc:1231] successfully loaded 'conformer-zh-CN-asr-offline-endpointing-streaming-offline' version 1
+I0327 06:43:42.167673 107 backend_model.cc:303] model configuration:
+{
+    "name": "conformer-zh-CN-asr-offline-feature-extractor-streaming-offline",
+    "platform": "",
+    "backend": "riva_asr_features",
+    "version_policy": {
+        "latest": {
+            "num_versions": 1
+        }
+    },
+    "max_batch_size": 512,
+    "input": [
+        {
+            "name": "AUDIO_SIGNAL",
+            "data_type": "TYPE_FP32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                -1
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        },
+        {
+            "name": "SAMPLE_RATE",
+            "data_type": "TYPE_UINT32",
+            "format": "FORMAT_NONE",
+            "dims": [
+                1
+            ],
+            "is_shape_tensor": false,
+            "allow_ragged_batch": false,
+            "optional": false
+        }
+    ],
+    "output": [
+        {
+            "name": "AUDIO_FEATURES",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                80,
+                -1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "AUDIO_PROCESSED",
+            "data_type": "TYPE_FP32",
+            "dims": [
+                1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        },
+        {
+            "name": "AUDIO_FEATURES_LENGTH",
+            "data_type": "TYPE_INT32",
+            "dims": [
+                1
+            ],
+            "label_filename": "",
+            "is_shape_tensor": false
+        }
+    ],
+    "batch_input": [],
+    "batch_output": [],
+    "optimization": {
+        "graph": {
+            "level": 0
+        },
+        "priority": "PRIORITY_DEFAULT",
+        "cuda": {
+            "graphs": false,
+            "busy_wait_events": false,
+            "graph_spec": [],
+            "output_copy_stream": true
+        },
+        "input_pinned_memory": {
+            "enable": true
+        },
+        "output_pinned_memory": {
+            "enable": true
+        },
+        "gather_kernel_buffer_threshold": 0,
+        "eager_batching": false
+    },
+    "sequence_batching": {
+        "oldest": {
+            "max_candidate_sequences": 512,
+            "preferred_batch_size": [
+                256,
+                512
+            ],
+            "max_queue_delay_microseconds": 1000
+        },
+        "max_sequence_idle_microseconds": 60000000,
+        "control_input": [
+            {
+                "name": "START",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_START",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "READY",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_READY",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "END",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_END",
+                        "int32_false_true": [
+                            0,
+                            1
+                        ],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_INVALID"
+                    }
+                ]
+            },
+            {
+                "name": "CORRID",
+                "control": [
+                    {
+                        "kind": "CONTROL_SEQUENCE_CORRID",
+                        "int32_false_true": [],
+                        "fp32_false_true": [],
+                        "bool_false_true": [],
+                        "data_type": "TYPE_UINT64"
+                    }
+                ]
+            }
+        ],
+        "state": []
+    },
+    "instance_group": [
+        {
+            "name": "conformer-zh-CN-asr-offline-feature-extractor-streaming-offline_0",
+            "kind": "KIND_GPU",
+            "count": 1,
+            "gpus": [
+                0
+            ],
+            "secondary_devices": [],
+            "profile": [],
+            "passive": false,
+            "host_policy": ""
+        }
+    ],
+    "default_model_filename": "",
+    "cc_model_filenames": {},
+    "metric_tags": {},
+    "parameters": {
+        "dither": {
+            "string_value": "0.0"
+        },
+        "apply_normalization": {
+            "string_value": "True"
+        },
+        "precalc_norm_params": {
+            "string_value": "False"
+        },
+        "norm_per_feature": {
+            "string_value": "True"
+        },
+        "mean": {
+            "string_value": "-11.4412,  -9.9334,  -9.1292,  -9.0365,  -9.2804,  -9.5643,  -9.7342, -9.6925,  -9.6333,  -9.2808,  -9.1887,  -9.1422,  -9.1397,  -9.2028, -9.2749,  -9.4776,  -9.9185, -10.1557, -10.3800, -10.5067, -10.3190, -10.4728, -10.5529, -10.6402, -10.6440, -10.5113, -10.7395, -10.7870, -10.6074, -10.5033, -10.8278, -10.6384, -10.8481, -10.6875, -10.5454, -10.4747, -10.5165, -10.4930, -10.3413, -10.3472, -10.3735, -10.6830, -10.8813, -10.6338, -10.3856, -10.7727, -10.8957, -10.8068, -10.7373, -10.6108, -10.3405, -10.2889, -10.3922, -10.4946, -10.3367, -10.4164, -10.9949, -10.7196, -10.3971, -10.1734,  -9.9257,  -9.6557,  -9.1761, -9.6653,  -9.7876,  -9.7230,  -9.7792,  -9.7056,  -9.2702,  -9.4650, -9.2755,  -9.1369,  -9.1174,  -8.9197,  -8.5394,  -8.2614,  -8.1353, -8.1422,  -8.3430,  -8.6655"
+        },
+        "stddev": {
+            "string_value": "2.2668, 3.1642, 3.7079, 3.7642, 3.5349, 3.5901, 3.7640, 3.8424, 4.0145, 4.1475, 4.0457, 3.9048, 3.7709, 3.6117, 3.3188, 3.1489, 3.0615, 3.0362, 2.9929, 3.0500, 3.0341, 3.0484, 3.0103, 2.9474, 2.9128, 2.8669, 2.8332, 2.9411, 3.0378, 3.0712, 3.0190, 2.9992, 3.0124, 3.0024, 3.0275, 3.0870, 3.0656, 3.0142, 3.0493, 3.1373, 3.1135, 3.0675, 2.8828, 2.7018, 2.6296, 2.8826, 2.9325, 2.9288, 2.9271, 2.9890, 3.0137, 2.9855, 3.0839, 2.9319, 2.3512, 2.3795, 2.6191, 2.7555, 2.9326, 2.9931, 3.1543, 3.0855, 2.6820, 3.0566, 3.1272, 3.1663, 3.1836, 3.0018, 2.9089, 3.1727, 3.1626, 3.1086, 2.9804, 3.1107, 3.2998, 3.3697, 3.3716, 3.2487, 3.1597, 3.1181"
+        },
+        "chunk_size": {
+            "string_value": "4.8"
+        },
+        "max_execution_batch_size": {
+            "string_value": "512"
+        },
+        "sample_rate": {
+            "string_value": "16000"
+        },
+        "window_stride": {
+            "string_value": "0.01"
+        },
+        "num_features": {
+            "string_value": "80"
+        },
+        "window_size": {
+            "string_value": "0.025"
+        },
+        "streaming": {
+            "string_value": "True"
+        },
+        "left_padding_size": {
+            "string_value": "1.6"
+        },
+        "stddev_floor": {
+            "string_value": "1e-05"
+        },
+        "transpose": {
+            "string_value": "False"
+        },
+        "right_padding_size": {
+            "string_value": "1.6"
+        },
+        "gain": {
+            "string_value": "1.0"
+        },
+        "precalc_norm_time_steps": {
+            "string_value": "0"
+        },
+        "use_utterance_norm_params": {
+            "string_value": "False"
+        }
+    },
+    "model_warmup": [],
+    "model_transaction_policy": {
+        "decoupled": false
+    }
+}
+I0327 06:43:42.167794 107 tensorrt.cc:5405] TRITONBACKEND_ModelInitialize: riva-trt-conformer-zh-CN-asr-offline-am-streaming-offline (version 1)
+I0327 06:43:42.169422 107 feature-extractor.cc:402] TRITONBACKEND_ModelInstanceInitialize: conformer-zh-CN-asr-streaming-feature-extractor-streaming_0 (device 0)
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:45.714748 107 tensorrt.cc:5405] TRITONBACKEND_ModelInitialize: riva-trt-conformer-zh-CN-asr-streaming-am-streaming (version 1)
+I0327 06:43:45.715294 107 model_repository_manager.cc:1231] successfully loaded 'conformer-zh-CN-asr-streaming-feature-extractor-streaming' version 1
+I0327 06:43:45.716440 107 feature-extractor.cc:402] TRITONBACKEND_ModelInstanceInitialize: conformer-zh-CN-asr-offline-feature-extractor-streaming-offline_0 (device 0)
+I0327 06:43:45.725167 107 tensorrt.cc:5454] TRITONBACKEND_ModelInstanceInitialize: riva-trt-conformer-zh-CN-asr-offline-am-streaming-offline_0 (GPU device 0)
+I0327 06:43:45.725620 107 model_repository_manager.cc:1231] successfully loaded 'conformer-zh-CN-asr-offline-feature-extractor-streaming-offline' version 1
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:46.183941 107 logging.cc:49] [MemUsageChange] Init CUDA: CPU +312, GPU +0, now: CPU 3642, GPU 4947 (MiB)
+I0327 06:43:46.970574 107 logging.cc:49] Loaded engine size: 332 MiB
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:47.360589 107 logging.cc:49] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 4422, GPU 5211 (MiB)
+I0327 06:43:47.538258 107 logging.cc:49] [MemUsageChange] Init cuDNN: CPU +116, GPU +52, now: CPU 4538, GPU 5263 (MiB)
+I0327 06:43:47.539729 107 logging.cc:49] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +247, now: CPU 0, GPU 247 (MiB)
+I0327 06:43:47.567034 107 logging.cc:49] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 3874, GPU 5255 (MiB)
+I0327 06:43:47.568946 107 logging.cc:49] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 3874, GPU 5263 (MiB)
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:48.710665 107 logging.cc:49] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +367, now: CPU 0, GPU 614 (MiB)
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:52.864347 107 tensorrt.cc:1411] Created instance riva-trt-conformer-zh-CN-asr-offline-am-streaming-offline_0 on GPU 0 with stream priority 0 and optimization profile default[0];
+I0327 06:43:52.864513 107 tensorrt.cc:5454] TRITONBACKEND_ModelInstanceInitialize: riva-trt-conformer-zh-CN-asr-streaming-am-streaming_0 (GPU device 0)
+I0327 06:43:52.864676 107 model_repository_manager.cc:1231] successfully loaded 'riva-trt-conformer-zh-CN-asr-offline-am-streaming-offline' version 1
+I0327 06:43:52.869075 107 logging.cc:49] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 4641, GPU 7644 (MiB)
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:53.409160 107 logging.cc:49] Loaded engine size: 358 MiB
+I0327 06:43:53.622954 107 logging.cc:49] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 5489, GPU 7915 (MiB)
+I0327 06:43:53.624694 107 logging.cc:49] [MemUsageChange] Init cuDNN: CPU +0, GPU +12, now: CPU 5489, GPU 7927 (MiB)
+I0327 06:43:53.625559 107 logging.cc:49] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +256, now: CPU 0, GPU 870 (MiB)
+I0327 06:43:53.650230 107 logging.cc:49] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 4773, GPU 7917 (MiB)
+I0327 06:43:53.651597 107 logging.cc:49] [MemUsageChange] Init cuDNN: CPU +0, GPU +10, now: CPU 4773, GPU 7927 (MiB)
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:58.039974 107 logging.cc:49] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +698, now: CPU 0, GPU 1568 (MiB)
+  > Riva waiting for Triton server to load all models...retrying in 1 second
+I0327 06:43:58.927296 107 tensorrt.cc:1411] Created instance riva-trt-conformer-zh-CN-asr-streaming-am-streaming_0 on GPU 0 with stream priority 0 and optimization profile default[0];
+I0327 06:43:58.927712 107 model_repository_manager.cc:1231] successfully loaded 'riva-trt-conformer-zh-CN-asr-streaming-am-streaming' version 1
+I0327 06:43:58.930132 107 model_repository_manager.cc:1077] loading: conformer-zh-CN-asr-streaming:1
+I0327 06:43:59.030584 107 model_repository_manager.cc:1077] loading: conformer-zh-CN-asr-offline:1
+I0327 06:43:59.130858 107 model_repository_manager.cc:1231] successfully loaded 'conformer-zh-CN-asr-streaming' version 1
+I0327 06:43:59.131084 107 model_repository_manager.cc:1231] successfully loaded 'conformer-zh-CN-asr-offline' version 1
+I0327 06:43:59.131297 107 server.cc:549]
++------------------+------+
+| Repository Agent | Path |
++------------------+------+
++------------------+------+
+
+I0327 06:43:59.131473 107 server.cc:576]
++----------------------+-----------------------------------------------------------------------------------+--------+
+| Backend              | Path                                                                              | Config |
++----------------------+-----------------------------------------------------------------------------------+--------+
+| pytorch              | /opt/tritonserver/backends/pytorch/libtriton_pytorch.so                           | {}     |
+| onnxruntime          | /opt/tritonserver/backends/onnxruntime/libtriton_onnxruntime.so                   | {}     |
+| riva_asr_features    | /opt/tritonserver/backends/riva_asr_features/libtriton_riva_asr_features.so       | {}     |
+| riva_asr_decoder     | /opt/tritonserver/backends/riva_asr_decoder/libtriton_riva_asr_decoder.so         | {}     |
+| tensorrt             | /opt/tritonserver/backends/tensorrt/libtriton_tensorrt.so                         | {}     |
+| riva_asr_endpointing | /opt/tritonserver/backends/riva_asr_endpointing/libtriton_riva_asr_endpointing.so | {}     |
++----------------------+-----------------------------------------------------------------------------------+--------+
+
+I0327 06:43:59.131673 107 server.cc:619]
++-----------------------------------------------------------------+---------+--------+
+| Model                                                           | Version | Status |
++-----------------------------------------------------------------+---------+--------+
+| conformer-zh-CN-asr-offline                                     | 1       | READY  |
+| conformer-zh-CN-asr-offline-ctc-decoder-cpu-streaming-offline   | 1       | READY  |
+| conformer-zh-CN-asr-offline-endpointing-streaming-offline       | 1       | READY  |
+| conformer-zh-CN-asr-offline-feature-extractor-streaming-offline | 1       | READY  |
+| conformer-zh-CN-asr-streaming                                   | 1       | READY  |
+| conformer-zh-CN-asr-streaming-ctc-decoder-cpu-streaming         | 1       | READY  |
+| conformer-zh-CN-asr-streaming-endpointing-streaming             | 1       | READY  |
+| conformer-zh-CN-asr-streaming-feature-extractor-streaming       | 1       | READY  |
+| riva-trt-conformer-zh-CN-asr-offline-am-streaming-offline       | 1       | READY  |
+| riva-trt-conformer-zh-CN-asr-streaming-am-streaming             | 1       | READY  |
++-----------------------------------------------------------------+---------+--------+
+
+I0327 06:43:59.160277 107 metrics.cc:650] Collecting metrics for GPU 0: Tesla T4
+I0327 06:43:59.160636 107 tritonserver.cc:2123]
++----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Option                           | Value                                                                                                                                                                                        |
++----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| server_id                        | triton                                                                                                                                                                                       |
+| server_version                   | 2.21.0                                                                                                                                                                                       |
+| server_extensions                | classification sequence model_repository model_repository(unload_dependents) schedule_policy model_configuration system_shared_memory cuda_shared_memory binary_tensor_data statistics trace |
+| model_repository_path[0]         | /data/models                                                                                                                                                                                 |
+| model_control_mode               | MODE_NONE                                                                                                                                                                                    |
+| strict_model_config              | 1                                                                                                                                                                                            |
+| rate_limit                       | OFF                                                                                                                                                                                          |
+| pinned_memory_pool_byte_size     | 268435456                                                                                                                                                                                    |
+| cuda_memory_pool_byte_size{0}    | 1000000000                                                                                                                                                                                   |
+| response_cache_byte_size         | 0                                                                                                                                                                                            |
+| min_supported_compute_capability | 6.0                                                                                                                                                                                          |
+| strict_readiness                 | 1                                                                                                                                                                                            |
+| exit_timeout                     | 30                                                                                                                                                                                           |
++----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+I0327 06:43:59.162762 107 grpc_server.cc:4544] Started GRPCInferenceService at 0.0.0.0:8001
+I0327 06:43:59.163151 107 http_server.cc:3242] Started HTTPService at 0.0.0.0:8000
+I0327 06:43:59.204654 107 http_server.cc:180] Started Metrics Service at 0.0.0.0:8002
+  > Triton server is ready...
+I0327 06:43:59.388937   324 riva_server.cc:120] Using Insecure Server Credentials
+I0327 06:43:59.398497   324 model_registry.cc:110] Successfully registered: conformer-zh-CN-asr-offline for ASR
+I0327 06:43:59.404855   324 model_registry.cc:110] Successfully registered: conformer-zh-CN-asr-streaming for ASR
+W0327 06:43:59.427191   324 grpc_riva_asr.cc:157] conformer-zh-CN-asr-offline has no configured wfst normalizer model
+W0327 06:43:59.427232   324 grpc_riva_asr.cc:157] conformer-zh-CN-asr-streaming has no configured wfst normalizer model
+I0327 06:43:59.427637   324 riva_server.cc:160] Riva Conversational AI Server listening on 0.0.0.0:50051
+W0327 06:43:59.427704   324 stats_reporter.cc:41] No API key provided. Stats reporting disabled.
+I0327 06:44:29.509397   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 06:44:29.509653   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 06:44:29.509721   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 512183891
+E0327 06:44:29.509891   353 grpc_riva_asr.cc:407] Error: Unavailable model requested. Lang: en-US, Type: offline
+I0327 06:44:37.911845   329 grpc_riva_asr.cc:935] ASRService.StreamingRecognize called.
+I0327 06:44:37.911976   329 grpc_riva_asr.cc:962] ASRService.StreamingRecognize performing streaming recognition with sequence id: 1572493563
+E0327 06:44:37.912127   329 grpc_riva_asr.cc:407] Error: Unavailable model requested. Lang: en-US, Type: online
+I0327 06:49:11.431465   353 grpc_riva_asr.cc:935] ASRService.StreamingRecognize called.
+I0327 06:49:11.431555   353 grpc_riva_asr.cc:962] ASRService.StreamingRecognize performing streaming recognition with sequence id: 1052976105
+E0327 06:49:11.431696   353 grpc_riva_asr.cc:407] Error: Unavailable model requested. Lang: en-US, Type: online
+I0327 06:54:44.325202   353 grpc_riva_asr.cc:935] ASRService.StreamingRecognize called.
+I0327 06:54:44.325297   353 grpc_riva_asr.cc:962] ASRService.StreamingRecognize performing streaming recognition with sequence id: 968288813
+I0327 06:54:44.325404   353 grpc_riva_asr.cc:1019] Using model conformer-zh-CN-asr-streaming for inference
+I0327 06:54:44.325543   353 grpc_riva_asr.cc:1035] Model sample rate= 16000 for inference
+I0327 06:54:44.425650   353 riva_asr_stream.cc:214] Detected format: encoding = 1 RAW numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 06:54:48.622290  1244 grpc_riva_asr.cc:709] Send silence buffer for EOS
+I0327 06:54:48.664186   353 grpc_riva_asr.cc:1136] ASRService.StreamingRecognize returning OK
+I0327 06:56:02.584939   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 06:56:02.585036   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 06:56:02.585047   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 2130566223
+I0327 06:56:02.585140   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 06:56:02.585247   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 06:56:02.667219   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:02:16.855376   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:02:16.855463   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:02:16.855479   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 1550816740
+I0327 07:02:16.855603   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:02:16.855746   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:02:16.933262   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:10.199281   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:10.199522   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:10.199540   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 496985160
+I0327 07:03:10.199656   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:10.199792   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:10.269172   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:10.271589   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:10.271656   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:10.271673   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 248316298
+I0327 07:03:10.271770   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:10.271926   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:10.338356   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:10.340658   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:10.340759   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:10.340776   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 255288947
+I0327 07:03:10.340888   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:10.341022   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:10.404793   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:10.406567   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:10.406773   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:10.406788   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 1181593154
+I0327 07:03:10.406875   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:10.406991   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:10.468281   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:10.470101   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:10.470183   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:10.470197   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 2068061081
+I0327 07:03:10.470302   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:10.470432   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:10.531342   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:10.533525   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:10.533746   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:10.533766   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 76497870
+I0327 07:03:10.533871   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:10.534001   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:10.586323   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:10.588164   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:10.588357   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:10.588373   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 1743540540
+I0327 07:03:10.588470   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:10.588593   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:10.642225   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:10.643949   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:10.644140   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:10.644157   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 605949718
+I0327 07:03:10.644253   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:10.644377   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:10.696966   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:10.698459   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:10.698652   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:10.698668   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 1099027010
+I0327 07:03:10.698760   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:10.698880   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:10.749392   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:10.750860   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:10.750914   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:10.750928   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 46789449
+I0327 07:03:10.751017   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:10.751133   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:10.792003   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:27.249369   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:27.249476   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:27.249491   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 882093839
+I0327 07:03:27.249603   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:27.249743   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:27.316403   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:27.318773   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:27.318852   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:27.318868   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 1703960693
+I0327 07:03:27.318977   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:27.319113   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:27.381738   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:27.383452   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:27.383540   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:27.383556   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 596794147
+I0327 07:03:27.383661   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:27.383792   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:27.447654   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:27.449524   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:27.449610   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:27.449627   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 1168020555
+I0327 07:03:27.449734   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:27.449856   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:27.506477   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:27.508208   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:27.508277   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:27.508291   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 810597667
+I0327 07:03:27.508381   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:27.508498   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:27.568585   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:27.570241   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:27.570302   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:27.570317   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 801161670
+I0327 07:03:27.570405   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:27.570537   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:27.624552   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:27.626052   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:27.626127   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:27.626142   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 887838156
+I0327 07:03:27.626245   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:27.626369   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:27.674151   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:27.675673   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:27.675873   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:27.675887   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 1068993841
+I0327 07:03:27.676002   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:03:27.676122   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:03:27.724376   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:03:27.725644   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:03:27.725716   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:03:27.725730   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 283420862
+I0327 07:03:27.725822   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.246520   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.246623   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:35:43.278630   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:35:43.279649   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:35:43.279703   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:35:43.279719   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 628294848
+I0327 07:35:43.279807   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.279940   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:35:43.320833   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:35:43.321812   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:35:43.321866   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:35:43.321879   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 816807632
+I0327 07:35:43.321959   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.322062   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:35:43.362592   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:35:43.363441   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:35:43.363473   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:35:43.363478   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 92729803
+I0327 07:35:43.363505   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.363540   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:35:43.402935   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:35:43.403971   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:35:43.404027   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:35:43.404043   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 472743876
+I0327 07:35:43.404129   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.404242   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:35:43.436475   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:35:43.437932   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:35:43.437983   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:35:43.437994   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 1593385806
+I0327 07:35:43.438068   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.438192   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:35:43.478873   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:35:43.480465   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:35:43.480511   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:35:43.480521   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 494796026
+I0327 07:35:43.480590   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.480677   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:35:43.516146   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:35:43.517596   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:35:43.517661   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:35:43.517690   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 863625762
+I0327 07:35:43.517839   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.517982   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:35:43.558650   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:35:43.559984   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:35:43.560034   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:35:43.560043   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 463184361
+I0327 07:35:43.560106   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.560185   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:35:43.607719   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:35:43.609176   329 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:35:43.609246   329 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:35:43.609261   329 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 1858091436
+I0327 07:35:43.609375   329 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.609535   329 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:35:43.648613   329 grpc_riva_asr.cc:672] ASRService.Recognize returning OK
+I0327 07:35:43.650136   353 grpc_riva_asr.cc:492] ASRService.Recognize called.
+I0327 07:35:43.650200   353 riva_asr_stream.cc:214] Detected format: encoding = 1 numchannels = 1 samplerate = 16000 bitspersample = 16
+I0327 07:35:43.650216   353 grpc_riva_asr.cc:558] ASRService.Recognize performing streaming recognition with sequence id: 1430370276
+I0327 07:35:43.650316   353 grpc_riva_asr.cc:588] Using model conformer-zh-CN-asr-offline for inference
+I0327 07:35:43.650441   353 grpc_riva_asr.cc:603] Model sample rate= 16000 for inference
+I0327 07:35:43.683005   353 grpc_riva_asr.cc:672] ASRService.Recognize returning OK

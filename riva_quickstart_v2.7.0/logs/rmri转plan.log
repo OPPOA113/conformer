@@ -1,0 +1,520 @@
+docker run --rm --gpus 0 -v /home/vastai/workspace/Riva/riva_quickstart_v2.7.0/riva-model-repo:/data nvcr.io/nvidia/riva/riva-speech:2.7.0-servicemaker -- \
+>     riva-deploy -f  \
+>         /data/rmir/Conformer-CTC-L-char-zh-CN-Riva-ASR-set-3.0-avg.rmir \
+>         /data/models/
+/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+
+==========================
+=== Riva Speech Skills ===
+==========================
+
+NVIDIA Release  (build 46434655)
+Copyright (c) 2016-2022, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+Copyright (c) 2018-2022, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+https://developer.nvidia.com/tensorrt
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+To install Python sample dependencies, run /opt/tensorrt/python/python_setup.sh
+
+To install the open-source samples corresponding to this TensorRT release version
+run /opt/tensorrt/install_opensource.sh.  To build the open source parsers,
+plugins, and samples for current top-of-tree on master or a different branch,
+run /opt/tensorrt/install_opensource.sh -b <branch>
+See https://github.com/NVIDIA/TensorRT for more information.
+
+2023-03-25 12:47:16,037 [INFO] Writing Riva model repository to '/data/models/'...
+2023-03-25 12:47:16,037 [INFO] The riva model repo target directory is /data/models/
+2023-03-25 12:47:25,676 [INFO] Using obey-precision pass with fp16 TRT
+2023-03-25 12:47:25,676 [INFO] Extract_binaries for nn -> /data/models/riva-trt-asr_offline_conformer_ctc_pipeline-am-streaming-offline/1
+2023-03-25 12:47:25,676 [INFO] extracting {'onnx': ('nemo.collections.asr.models.ctc_models.EncDecCTCModel', 'model_graph.onnx')} -> /data/models/riva-trt-asr_offline_conformer_ctc_pipeline-am-streaming-offline/1
+2023-03-25 12:47:26,374 [INFO] Printing copied artifacts:
+2023-03-25 12:47:26,375 [INFO] {'onnx': '/data/models/riva-trt-asr_offline_conformer_ctc_pipeline-am-streaming-offline/1/model_graph.onnx'}
+2023-03-25 12:47:26,375 [INFO] Building TRT engine from ONNX file
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:364: Your ONNX model has been generated with INT64 weights, while TensorRT does not natively support INT64. Attempting to cast down to INT32.
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+[03/25/2023-12:47:30] [TRT] [W] parsers/onnx/onnx2trt_utils.cpp:392: One or more weights outside the range of INT32 was clamped
+2023-03-25 12:51:19,686 [INFO] Mixed-precision net: 6651 layers, 6651 tensors, 1 outputs...
+2023-03-25 12:51:19,832 [INFO] Mixed-precision net: 8 layers / 8 outputs fixed
+[03/25/2023-12:53:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:53:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:53:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:54:10] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:54:10] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:54:10] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:54:26] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:54:26] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:54:26] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:54:26] [TRT] [W] Myelin graph could not be created.
+[03/25/2023-12:54:46] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:54:46] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:54:46] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:54:48] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:54:48] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:54:48] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:54:51] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:54:51] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:54:51] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:55:16] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:55:16] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:55:16] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:55:34] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:55:34] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:55:34] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:55:53] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:55:53] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:55:53] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:56:12] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:56:12] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:56:12] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:56:15] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:56:15] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:56:15] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:56:18] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:56:18] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:56:18] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:56:21] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:56:21] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:56:21] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:56:38] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:56:38] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:56:38] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:56:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:56:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:56:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:57:16] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:57:16] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:57:16] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:57:19] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:57:19] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:57:19] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:57:21] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:57:21] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:57:21] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:57:24] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:57:24] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:57:24] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:57:41] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:57:41] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:57:41] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:57:59] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:57:59] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:57:59] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:58:18] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:58:18] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:58:18] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:58:20] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:58:20] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:58:20] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:58:23] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:58:23] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:58:23] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:58:26] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:58:26] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:58:26] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:58:43] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:58:43] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:58:43] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:59:00] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:59:00] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:59:00] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:59:20] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:59:20] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:59:20] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:59:22] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:59:22] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:59:22] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:59:24] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:59:24] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:59:24] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:59:27] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:59:27] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:59:27] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-12:59:44] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-12:59:44] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-12:59:44] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:00:02] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:00:02] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:00:02] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:00:19] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:00:19] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:00:19] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:00:21] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:00:21] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:00:21] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:00:23] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:00:23] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:00:23] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:00:27] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:00:27] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:00:27] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:00:44] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:00:44] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:00:44] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:01:01] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:01:01] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:01:01] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:01:18] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:01:18] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:01:18] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:01:20] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:01:20] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:01:20] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:01:23] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:01:23] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:01:23] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:01:26] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:01:26] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:01:26] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:01:43] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:01:43] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:01:43] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:02:00] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:02:00] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:02:00] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:02:17] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:02:17] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:02:17] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:02:19] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:02:19] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:02:19] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:02:21] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:02:21] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:02:21] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:02:25] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:02:25] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:02:25] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:02:42] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:02:42] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:02:42] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:02:59] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:02:59] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:02:59] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:03:16] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:03:16] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:03:16] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:03:19] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:03:19] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:03:19] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:03:21] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:03:21] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:03:21] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:03:24] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:03:24] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:03:24] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:03:42] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:03:42] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:03:42] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:04:01] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:04:01] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:04:01] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:04:21] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:04:21] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:04:21] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:04:23] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:04:23] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:04:23] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:04:26] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:04:26] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:04:26] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:04:29] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:04:29] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:04:29] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:04:46] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:04:46] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:04:46] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:05:03] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:05:03] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:05:03] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:05:22] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:05:22] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:05:22] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:05:25] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:05:25] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:05:25] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:05:27] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:05:27] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:05:27] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:05:31] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:05:31] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:05:31] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:05:48] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:05:48] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:05:48] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:06:05] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:06:05] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:06:05] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:06:24] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:06:24] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:06:24] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:06:27] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:06:27] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:06:27] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:06:30] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:06:30] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:06:30] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:06:33] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:06:33] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:06:33] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:06:50] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:06:50] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:06:50] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:07:07] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:07:07] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:07:07] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:07:27] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:07:27] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:07:27] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:07:30] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:07:30] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:07:30] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:07:32] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:07:32] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:07:32] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:07:35] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:07:35] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:07:35] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:07:53] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:07:53] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:07:53] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:08:12] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:08:12] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:08:12] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:08:32] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:08:32] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:08:32] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:08:34] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:08:34] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:08:34] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:08:37] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:08:37] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:08:37] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:08:40] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:08:40] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:08:40] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:08:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:08:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:08:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:09:14] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:09:14] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:09:14] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:09:32] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:09:32] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:09:32] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:09:35] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:09:35] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:09:35] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:09:37] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:09:37] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:09:37] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:09:40] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:09:40] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:09:40] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:09:59] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:09:59] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:09:59] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:10:18] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:10:18] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:10:18] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:10:37] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:10:37] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:10:37] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:10:40] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:10:40] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:10:40] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:10:42] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:10:42] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:10:42] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:10:45] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:10:45] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:10:45] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:11:03] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:11:03] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:11:03] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:11:20] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:11:20] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:11:20] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:11:39] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:11:39] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:11:39] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:11:42] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:11:42] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:11:42] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:11:44] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:11:44] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:11:44] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:11:47] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:11:47] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:11:47] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:06] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:06] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:06] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:25] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:25] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:25] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:45] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:45] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:45] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:47] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:47] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:47] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:50] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:50] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:50] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:55] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:55] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:55] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:55] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:55] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:55] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:55] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:55] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:55] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:55] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:55] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:55] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:55] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:55] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:55] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:56] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:56] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:56] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:56] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:56] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:56] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:56] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:56] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:56] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:56] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:57] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:57] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:58] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:58] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:58] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:58] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:58] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:58] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:58] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:58] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:58] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:58] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:59] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:59] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:59] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:59] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:59] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:59] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:59] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:59] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:59] [TRT] [W]  (# 0 (SHAPE length))
+[03/25/2023-13:12:59] [TRT] [W] Myelin graph with multiple dynamic values may have poor performance if they differ. Dynamic values are: 
+[03/25/2023-13:12:59] [TRT] [W]  (# 0 (SHAPE audio_signal))
+[03/25/2023-13:12:59] [TRT] [W]  (# 0 (SHAPE length))
+2023-03-25 13:13:04,067 [INFO] Writing engine to model repository: /data/models/riva-trt-asr_offline_conformer_ctc_pipeline-am-streaming-offline/1/model.plan
+2023-03-25 13:13:04,274 [INFO] Extract_binaries for featurizer -> /data/models/asr_offline_conformer_ctc_pipeline-feature-extractor-streaming-offline/1
+2023-03-25 13:13:04,277 [INFO] Extract_binaries for endpointing -> /data/models/asr_offline_conformer_ctc_pipeline-endpointing-streaming-offline/1
+2023-03-25 13:13:04,277 [INFO] extracting {'vocab_file': '/tmp/tmpvzau969j/riva_decoder_vocabulary.txt'} -> /data/models/asr_offline_conformer_ctc_pipeline-endpointing-streaming-offline/1
+2023-03-25 13:13:04,278 [INFO] Extract_binaries for lm_decoder -> /data/models/asr_offline_conformer_ctc_pipeline-ctc-decoder-cpu-streaming-offline/1
+2023-03-25 13:13:04,278 [INFO] extracting {'vocab_file': '/tmp/tmpvzau969j/riva_decoder_vocabulary.txt'} -> /data/models/asr_offline_conformer_ctc_pipeline-ctc-decoder-cpu-streaming-offline/1
+2023-03-25 13:13:04,278 [INFO] {'vocab_file': '/data/models/asr_offline_conformer_ctc_pipeline-ctc-decoder-cpu-streaming-offline/1/riva_decoder_vocabulary.txt'}
+2023-03-25 13:13:04,279 [INFO] Extract_binaries for asr_offline_conformer_ctc_pipeline -> /data/models/asr_offline_conformer_ctc_pipeline/1
+vastai@shfw0011072:~/workspace/Riva/riva_quickstart_v2.7.0$ 

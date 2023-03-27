@@ -1,0 +1,4 @@
+[submodule "python-clients"]
+    path = python-clients 
+    url = git@github.com:nvidia-riva/python-clients.git
+	branch = main

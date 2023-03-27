@@ -1,0 +1,58 @@
+
+vastai@shfw0011072:~/workspace/Riva/riva_quickstart_v2.7.0$ docker run --rm --gpus 0 -v /home/vastai/workspace/Riva/riva_quickstart_v2.7.0/riva-model-repo:/data nvcr.io/nvidia/riva/riva-speech:2.7.0-servicemaker -- \
+>     riva-build speech_recognition \
+>         /data/rmir/Conformer-CTC-L-char-zh-CN-Riva-ASR-set-3.0-avg.rmir \
+>         /data/Conformer-CTC-L-char-zh-CN-Riva-ASR-set-3.0-avg.riva \
+>         --offline \
+>         --name=asr_offline_conformer_ctc_pipeline \
+>         --decoder_type=greedy \
+>         --ms_per_timestep=40 \
+>         --chunk_size=4.8 \
+>         --left_padding_size=1.6 \
+>         --right_padding_size=1.6 \
+>         --max_batch_size=16 \
+>         --nn.fp16_needs_obey_precision_pass \
+>         --featurizer.use_utterance_norm_params=False \
+>         --featurizer.precalc_norm_time_steps=0 \
+>         --featurizer.precalc_norm_params=False \
+>         --featurizer.max_batch_size=512 \
+>         --featurizer.max_execution_batch_size=512 \
+>         --language_code=zh-CN
+/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+
+==========================
+=== Riva Speech Skills ===
+==========================
+
+NVIDIA Release  (build 46434655)
+Copyright (c) 2016-2022, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+Copyright (c) 2018-2022, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+https://developer.nvidia.com/tensorrt
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+To install Python sample dependencies, run /opt/tensorrt/python/python_setup.sh
+
+To install the open-source samples corresponding to this TensorRT release version
+run /opt/tensorrt/install_opensource.sh.  To build the open source parsers,
+plugins, and samples for current top-of-tree on master or a different branch,
+run /opt/tensorrt/install_opensource.sh -b <branch>
+See https://github.com/NVIDIA/TensorRT for more information.
+
+2023-03-25 11:19:36,810 [INFO] Packing binaries for nn/ONNX : {'onnx': ('nemo.collections.asr.models.ctc_models.EncDecCTCModel', 'model_graph.onnx')}
+2023-03-25 11:19:36,810 [INFO] Copying onnx:model_graph.onnx -> nn:nn-model_graph.onnx
+2023-03-25 11:19:38,254 [INFO] Packing binaries for lm_decoder/ONNX : {'vocab_file': '/tmp/tmpvzau969j/riva_decoder_vocabulary.txt'}
+2023-03-25 11:19:38,254 [INFO] Copying vocab_file:/tmp/tmpvzau969j/riva_decoder_vocabulary.txt -> lm_decoder:lm_decoder-riva_decoder_vocabulary.txt
+2023-03-25 11:19:38,255 [INFO] Packing binaries for rescorer/ONNX : {'vocab_file': '/tmp/tmpvzau969j/riva_decoder_vocabulary.txt'}
+2023-03-25 11:19:38,255 [INFO] Copying vocab_file:/tmp/tmpvzau969j/riva_decoder_vocabulary.txt -> rescorer:rescorer-riva_decoder_vocabulary.txt
+2023-03-25 11:19:38,255 [INFO] Packing binaries for endpointing/ONNX : {'vocab_file': '/tmp/tmpvzau969j/riva_decoder_vocabulary.txt'}
+2023-03-25 11:19:38,255 [INFO] Copying vocab_file:/tmp/tmpvzau969j/riva_decoder_vocabulary.txt -> endpointing:endpointing-riva_decoder_vocabulary.txt
+2023-03-25 11:19:38,255 [INFO] Packing binaries for vad/ONNX : {}
+2023-03-25 11:19:38,255 [INFO] Packing binaries for vad_nn/ONNX : {}
+2023-03-25 11:19:38,255 [INFO] Saving to /data/rmir/Conformer-CTC-L-char-zh-CN-Riva-ASR-set-3.0-avg.rmir
