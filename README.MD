@@ -4,6 +4,8 @@ Deploy a Custom Acoustic Model (Conformer-CTC)
 
 Riva[简介](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/overview.html), [github](https://github.com/nvidia-riva), [tutorial](https://github.com/nvidia-riva/tutorials/blob/r2.9.0/asr-deploy-conformer-ctc.ipynb)
 
+tensorrt --> triton --> riva
+
 # install
 
 从ngc下载镜像方法, 参考[博客](https://blog.csdn.net/Deaohst/article/details/128789824), ngc使用[参考](https://blog.csdn.net/weixin_44831720/article/details/117956175)
@@ -88,6 +90,8 @@ requirements:
 
 # dependency
 
-+ [Triton_inference_service](https://github.com/triton-inference-server/server)
++ 推理服务[Triton_inference_service](https://github.com/triton-inference-server/server)
 
-+ [TensorRt](https://github.com/NVIDIA/TensorRT)
++ 推理框架[TensorRt](https://github.com/NVIDIA/TensorRT)
+
++ 训练框架[Nemo](https://github.com/nvidia/nemo)
