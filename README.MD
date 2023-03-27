@@ -4,7 +4,9 @@ Deploy a Custom Acoustic Model (Conformer-CTC)
 
 Riva[简介](https://docs.nvidia.com/deeplearning/riva/user-guide/docs/overview.html), [github](https://github.com/nvidia-riva), [tutorial](https://github.com/nvidia-riva/tutorials/blob/r2.9.0/asr-deploy-conformer-ctc.ipynb)
 
-tensorrt --> triton --> riva
+![Riva](./docs/Riva.jpg)
+
+[tensorrt](./docs/tensorrt.md) --> [triton](./docs/Trinton.md) --> [riva](./docs/Riva.md)
 
 # install
 

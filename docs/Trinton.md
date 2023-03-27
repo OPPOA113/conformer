@@ -1,6 +1,6 @@
 Triton
-
-
+![triton](./Triton_pipelie.jpg)
+![triton_detail](./Triton_infer_detail.jpg)
 可以大概知道triton的一些功能和特点：
 
 + 支持HTTP/GRPC
