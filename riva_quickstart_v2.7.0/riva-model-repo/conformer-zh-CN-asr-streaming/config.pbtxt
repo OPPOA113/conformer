@@ -1,0 +1,285 @@
+name: "conformer-zh-CN-asr-streaming"
+platform: "ensemble"
+max_batch_size: 64
+input {
+  name: "AUDIO_SIGNAL"
+  data_type: TYPE_FP32
+  dims: [-1]
+}
+input {
+  name: "SAMPLE_RATE"
+  data_type: TYPE_UINT32
+  dims: [1]
+}
+input {
+  name: "END_FLAG"
+  data_type: TYPE_UINT32
+  dims: [1]
+}
+input {
+  name: "CUSTOM_CONFIGURATION"
+  data_type: TYPE_STRING
+  dims: [-1, 2]
+}
+output {
+  name: "FINAL_TRANSCRIPTS"
+  data_type: TYPE_STRING
+  dims: [-1]
+}
+output {
+  name: "FINAL_TRANSCRIPTS_SCORE"
+  data_type: TYPE_FP32
+  dims: [-1]
+}
+output {
+  name: "FINAL_WORDS_START_END"
+  data_type: TYPE_INT32
+  dims: [-1, 2]
+}
+output {
+  name: "PARTIAL_TRANSCRIPTS"
+  data_type: TYPE_STRING
+  dims: [-1]
+}
+output {
+  name: "PARTIAL_TRANSCRIPTS_STABILITY"
+  data_type: TYPE_FP32
+  dims: [-1]
+}
+output {
+  name: "PARTIAL_WORDS_START_END"
+  data_type: TYPE_INT32
+  dims: [-1, 2]
+}
+output {
+  name: "AUDIO_PROCESSED"
+  data_type: TYPE_FP32
+  dims: [1]
+}
+output {
+  name: "FINAL_WORDS_SCORE"
+  data_type: TYPE_FP32
+  dims: [-1]
+}
+output {
+  name: "PARTIAL_WORDS_SCORE"
+  data_type: TYPE_FP32
+  dims: [-1]
+}
+parameters {
+  key: "chunk_size"
+  value {
+    string_value: "0.16"
+  }
+}
+parameters {
+  key: "decoder_type"
+  value {
+    string_value: "greedy"
+  }
+}
+parameters {
+  key: "endpointing_type"
+  value {
+    string_value: "greedy_ctc"
+  }
+}
+parameters {
+  key: "language_code"
+  value {
+    string_value: "zh-CN"
+  }
+}
+parameters {
+  key: "lattice_beam"
+  value {
+    string_value: "5"
+  }
+}
+parameters {
+  key: "left_padding_size"
+  value {
+    string_value: "1.92"
+  }
+}
+parameters {
+  key: "max_supported_transcripts"
+  value {
+    string_value: "1"
+  }
+}
+parameters {
+  key: "model_family"
+  value {
+    string_value: "riva"
+  }
+}
+parameters {
+  key: "ms_per_timestep"
+  value {
+    string_value: "40"
+  }
+}
+parameters {
+  key: "offline"
+  value {
+    string_value: "False"
+  }
+}
+parameters {
+  key: "right_padding_size"
+  value {
+    string_value: "1.92"
+  }
+}
+parameters {
+  key: "sample_rate"
+  value {
+    string_value: "16000"
+  }
+}
+parameters {
+  key: "stddev_floor"
+  value {
+    string_value: "1e-05"
+  }
+}
+parameters {
+  key: "streaming"
+  value {
+    string_value: "True"
+  }
+}
+parameters {
+  key: "type"
+  value {
+    string_value: "online"
+  }
+}
+parameters {
+  key: "vad_type"
+  value {
+    string_value: "none"
+  }
+}
+parameters {
+  key: "wfst_model_dir"
+  value {
+  }
+}
+parameters {
+  key: "wfst_tokenizer_model"
+  value {
+  }
+}
+parameters {
+  key: "wfst_verbalizer_model"
+  value {
+  }
+}
+ensemble_scheduling {
+  step {
+    model_name: "conformer-zh-CN-asr-streaming-feature-extractor-streaming"
+    model_version: 1
+    input_map {
+      key: "AUDIO_SIGNAL"
+      value: "AUDIO_SIGNAL"
+    }
+    input_map {
+      key: "SAMPLE_RATE"
+      value: "SAMPLE_RATE"
+    }
+    output_map {
+      key: "AUDIO_FEATURES"
+      value: "AUDIO_FEATURES"
+    }
+    output_map {
+      key: "AUDIO_FEATURES_LENGTH"
+      value: "AUDIO_FEATURES_LENGTH"
+    }
+    output_map {
+      key: "AUDIO_PROCESSED"
+      value: "AUDIO_PROCESSED"
+    }
+  }
+  step {
+    model_name: "riva-trt-conformer-zh-CN-asr-streaming-am-streaming"
+    model_version: 1
+    input_map {
+      key: "audio_signal"
+      value: "AUDIO_FEATURES"
+    }
+    input_map {
+      key: "length"
+      value: "AUDIO_FEATURES_LENGTH"
+    }
+    output_map {
+      key: "logprobs"
+      value: "CHARACTER_PROBABILITIES"
+    }
+  }
+  step {
+    model_name: "conformer-zh-CN-asr-streaming-endpointing-streaming"
+    model_version: 1
+    input_map {
+      key: "CLASS_LOGITS"
+      value: "CHARACTER_PROBABILITIES"
+    }
+    output_map {
+      key: "SEGMENTS_START_END"
+      value: "SEGMENTS_START_END"
+    }
+  }
+  step {
+    model_name: "conformer-zh-CN-asr-streaming-ctc-decoder-cpu-streaming"
+    model_version: 1
+    input_map {
+      key: "CLASS_LOGITS"
+      value: "CHARACTER_PROBABILITIES"
+    }
+    input_map {
+      key: "CUSTOM_CONFIGURATION"
+      value: "CUSTOM_CONFIGURATION"
+    }
+    input_map {
+      key: "END_FLAG"
+      value: "END_FLAG"
+    }
+    input_map {
+      key: "SEGMENTS_START_END"
+      value: "SEGMENTS_START_END"
+    }
+    output_map {
+      key: "FINAL_TRANSCRIPTS"
+      value: "FINAL_TRANSCRIPTS"
+    }
+    output_map {
+      key: "FINAL_TRANSCRIPTS_SCORE"
+      value: "FINAL_TRANSCRIPTS_SCORE"
+    }
+    output_map {
+      key: "FINAL_WORDS_SCORE"
+      value: "FINAL_WORDS_SCORE"
+    }
+    output_map {
+      key: "FINAL_WORDS_START_END"
+      value: "FINAL_WORDS_START_END"
+    }
+    output_map {
+      key: "PARTIAL_TRANSCRIPTS"
+      value: "PARTIAL_TRANSCRIPTS"
+    }
+    output_map {
+      key: "PARTIAL_TRANSCRIPTS_STABILITY"
+      value: "PARTIAL_TRANSCRIPTS_STABILITY"
+    }
+    output_map {
+      key: "PARTIAL_WORDS_SCORE"
+      value: "PARTIAL_WORDS_SCORE"
+    }
+    output_map {
+      key: "PARTIAL_WORDS_START_END"
+      value: "PARTIAL_WORDS_START_END"
+    }
+  }
+}

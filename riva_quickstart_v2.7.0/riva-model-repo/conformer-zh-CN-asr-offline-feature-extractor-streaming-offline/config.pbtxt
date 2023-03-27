@@ -1,0 +1,196 @@
+name: "conformer-zh-CN-asr-offline-feature-extractor-streaming-offline"
+max_batch_size: 512
+input {
+  name: "AUDIO_SIGNAL"
+  data_type: TYPE_FP32
+  dims: [-1]
+}
+input {
+  name: "SAMPLE_RATE"
+  data_type: TYPE_UINT32
+  dims: [1]
+}
+output {
+  name: "AUDIO_FEATURES"
+  data_type: TYPE_FP32
+  dims: [80, -1]
+}
+output {
+  name: "AUDIO_PROCESSED"
+  data_type: TYPE_FP32
+  dims: [1]
+}
+output {
+  name: "AUDIO_FEATURES_LENGTH"
+  data_type: TYPE_INT32
+  dims: [1]
+}
+instance_group {
+  count: 1
+  kind: KIND_GPU
+}
+optimization {
+  graph {
+  }
+  cuda {
+    output_copy_stream: true
+  }
+}
+sequence_batching {
+  max_sequence_idle_microseconds: 60000000
+  control_input {
+    name: "START"
+    control {
+      int32_false_true: [0, 1]
+    }
+  }
+  control_input {
+    name: "READY"
+    control {
+      kind: CONTROL_SEQUENCE_READY
+      int32_false_true: [0, 1]
+    }
+  }
+  control_input {
+    name: "END"
+    control {
+      kind: CONTROL_SEQUENCE_END
+      int32_false_true: [0, 1]
+    }
+  }
+  control_input {
+    name: "CORRID"
+    control {
+      kind: CONTROL_SEQUENCE_CORRID
+      data_type: TYPE_UINT64
+    }
+  }
+  oldest {
+    max_candidate_sequences: 512
+    preferred_batch_size: [256, 512]
+    max_queue_delay_microseconds: 1000
+  }
+}
+parameters {
+  key: "apply_normalization"
+  value {
+    string_value: "True"
+  }
+}
+parameters {
+  key: "chunk_size"
+  value {
+    string_value: "4.8"
+  }
+}
+parameters {
+  key: "dither"
+  value {
+    string_value: "0.0"
+  }
+}
+parameters {
+  key: "gain"
+  value {
+    string_value: "1.0"
+  }
+}
+parameters {
+  key: "left_padding_size"
+  value {
+    string_value: "1.6"
+  }
+}
+parameters {
+  key: "max_execution_batch_size"
+  value {
+    string_value: "512"
+  }
+}
+parameters {
+  key: "mean"
+  value {
+    string_value: "-11.4412,  -9.9334,  -9.1292,  -9.0365,  -9.2804,  -9.5643,  -9.7342, -9.6925,  -9.6333,  -9.2808,  -9.1887,  -9.1422,  -9.1397,  -9.2028, -9.2749,  -9.4776,  -9.9185, -10.1557, -10.3800, -10.5067, -10.3190, -10.4728, -10.5529, -10.6402, -10.6440, -10.5113, -10.7395, -10.7870, -10.6074, -10.5033, -10.8278, -10.6384, -10.8481, -10.6875, -10.5454, -10.4747, -10.5165, -10.4930, -10.3413, -10.3472, -10.3735, -10.6830, -10.8813, -10.6338, -10.3856, -10.7727, -10.8957, -10.8068, -10.7373, -10.6108, -10.3405, -10.2889, -10.3922, -10.4946, -10.3367, -10.4164, -10.9949, -10.7196, -10.3971, -10.1734,  -9.9257,  -9.6557,  -9.1761, -9.6653,  -9.7876,  -9.7230,  -9.7792,  -9.7056,  -9.2702,  -9.4650, -9.2755,  -9.1369,  -9.1174,  -8.9197,  -8.5394,  -8.2614,  -8.1353, -8.1422,  -8.3430,  -8.6655"
+  }
+}
+parameters {
+  key: "norm_per_feature"
+  value {
+    string_value: "True"
+  }
+}
+parameters {
+  key: "num_features"
+  value {
+    string_value: "80"
+  }
+}
+parameters {
+  key: "precalc_norm_params"
+  value {
+    string_value: "False"
+  }
+}
+parameters {
+  key: "precalc_norm_time_steps"
+  value {
+    string_value: "0"
+  }
+}
+parameters {
+  key: "right_padding_size"
+  value {
+    string_value: "1.6"
+  }
+}
+parameters {
+  key: "sample_rate"
+  value {
+    string_value: "16000"
+  }
+}
+parameters {
+  key: "stddev"
+  value {
+    string_value: "2.2668, 3.1642, 3.7079, 3.7642, 3.5349, 3.5901, 3.7640, 3.8424, 4.0145, 4.1475, 4.0457, 3.9048, 3.7709, 3.6117, 3.3188, 3.1489, 3.0615, 3.0362, 2.9929, 3.0500, 3.0341, 3.0484, 3.0103, 2.9474, 2.9128, 2.8669, 2.8332, 2.9411, 3.0378, 3.0712, 3.0190, 2.9992, 3.0124, 3.0024, 3.0275, 3.0870, 3.0656, 3.0142, 3.0493, 3.1373, 3.1135, 3.0675, 2.8828, 2.7018, 2.6296, 2.8826, 2.9325, 2.9288, 2.9271, 2.9890, 3.0137, 2.9855, 3.0839, 2.9319, 2.3512, 2.3795, 2.6191, 2.7555, 2.9326, 2.9931, 3.1543, 3.0855, 2.6820, 3.0566, 3.1272, 3.1663, 3.1836, 3.0018, 2.9089, 3.1727, 3.1626, 3.1086, 2.9804, 3.1107, 3.2998, 3.3697, 3.3716, 3.2487, 3.1597, 3.1181"
+  }
+}
+parameters {
+  key: "stddev_floor"
+  value {
+    string_value: "1e-05"
+  }
+}
+parameters {
+  key: "streaming"
+  value {
+    string_value: "True"
+  }
+}
+parameters {
+  key: "transpose"
+  value {
+    string_value: "False"
+  }
+}
+parameters {
+  key: "use_utterance_norm_params"
+  value {
+    string_value: "False"
+  }
+}
+parameters {
+  key: "window_size"
+  value {
+    string_value: "0.025"
+  }
+}
+parameters {
+  key: "window_stride"
+  value {
+    string_value: "0.01"
+  }
+}
+backend: "riva_asr_features"
+model_transaction_policy {
+}

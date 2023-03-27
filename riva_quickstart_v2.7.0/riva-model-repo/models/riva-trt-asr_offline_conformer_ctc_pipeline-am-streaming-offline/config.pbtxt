@@ -1,0 +1,39 @@
+name: "riva-trt-asr_offline_conformer_ctc_pipeline-am-streaming-offline"
+platform: "tensorrt_plan"
+max_batch_size: 16
+input {
+  name: "audio_signal"
+  data_type: TYPE_FP32
+  dims: [80, -1]
+}
+input {
+  name: "length"
+  data_type: TYPE_INT32
+  dims: [1]
+  reshape {
+  }
+}
+output {
+  name: "logprobs"
+  data_type: TYPE_FP32
+  dims: [-1, 5207]
+}
+instance_group {
+  count: 1
+  kind: KIND_GPU
+}
+dynamic_batching {
+  preferred_batch_size: [16]
+  max_queue_delay_microseconds: 1000
+  preserve_ordering: true
+}
+optimization {
+  graph {
+  }
+  cuda {
+    graphs: true
+    output_copy_stream: true
+  }
+}
+model_transaction_policy {
+}

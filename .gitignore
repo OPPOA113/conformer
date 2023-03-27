@@ -1,4 +1,6 @@
 
 RIVA_Conformer_ASR
-riva-model-repo
+*.plan
+*.rmir
+*.riva
 common

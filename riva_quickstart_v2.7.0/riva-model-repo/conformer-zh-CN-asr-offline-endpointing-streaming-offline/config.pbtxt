@@ -1,0 +1,114 @@
+name: "conformer-zh-CN-asr-offline-endpointing-streaming-offline"
+max_batch_size: 2048
+input {
+  name: "CLASS_LOGITS"
+  data_type: TYPE_FP32
+  dims: [-1, 5207]
+}
+output {
+  name: "SEGMENTS_START_END"
+  data_type: TYPE_FP32
+  dims: [-1, 2]
+}
+instance_group {
+  count: 1
+  kind: KIND_CPU
+}
+optimization {
+  graph {
+  }
+  cuda {
+    output_copy_stream: true
+  }
+}
+sequence_batching {
+  max_sequence_idle_microseconds: 60000000
+  control_input {
+    name: "START"
+    control {
+      int32_false_true: [0, 1]
+    }
+  }
+  control_input {
+    name: "READY"
+    control {
+      kind: CONTROL_SEQUENCE_READY
+      int32_false_true: [0, 1]
+    }
+  }
+}
+parameters {
+  key: "chunk_size"
+  value {
+    string_value: "4.8"
+  }
+}
+parameters {
+  key: "endpointing_type"
+  value {
+    string_value: "greedy_ctc"
+  }
+}
+parameters {
+  key: "ms_per_timestep"
+  value {
+    string_value: "40"
+  }
+}
+parameters {
+  key: "residue_blanks_at_end"
+  value {
+    string_value: "0"
+  }
+}
+parameters {
+  key: "residue_blanks_at_start"
+  value {
+    string_value: "-2"
+  }
+}
+parameters {
+  key: "start_history"
+  value {
+    string_value: "200"
+  }
+}
+parameters {
+  key: "start_th"
+  value {
+    string_value: "0.2"
+  }
+}
+parameters {
+  key: "stop_history"
+  value {
+    string_value: "800"
+  }
+}
+parameters {
+  key: "stop_th"
+  value {
+    string_value: "0.98"
+  }
+}
+parameters {
+  key: "streaming"
+  value {
+    string_value: "True"
+  }
+}
+parameters {
+  key: "use_subword"
+  value {
+    string_value: "False"
+  }
+}
+parameters {
+  key: "vocab_file"
+  value {
+    string_value: "/data/models/conformer-zh-CN-asr-offline-endpointing-streaming-offline/1/riva_decoder_vocabulary.txt"
+  }
+}
+backend: "riva_asr_endpointing"
+model_transaction_policy {
+}
