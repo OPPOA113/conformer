@@ -141,7 +141,7 @@ for lang_code in ${language_code[@]}; do
 
       # ### Offline w/ CPU decoder,
       #    "${riva_ngc_org}/${riva_ngc_team}/rmir_asr_${asr_acoustic_model}_${modified_lang_code}_ofl${decoder}:${riva_ngc_model_version}"
-      )
+      #)
     fi
 
     # ### Punctuation model
