@@ -44,14 +44,15 @@ def main() -> None:
     with args.input_file.open('rb') as fh:
         data = fh.read()
     print("pipeline start")
-    time_s = time.time()
-    for i in range(50):
+    # time_s = time.time()
+    for i in range(1000):
+        time_s = time.time()
         try:
             riva.client.print_offline(response=asr_service.offline_recognize(data, config))
         except grpc.RpcError as e:
             print(e.details())
-    time_e = time.time()
-    print(f"pipeline end, time used: {(time_e - time_s)/50.0:.4f} s")
+        time_e = time.time()
+        print(f"pipeline end, time used: {(time_e - time_s):.4f} s \n")
 
 if __name__ == "__main__":
     main()
